@@ -6,17 +6,11 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   async findOne(userid: string) {
+    console.log(userid);
     return await this.prisma.user.findUnique({ where: { userid } });
   }
 
   async create(userid: string, password: string) {
     return await this.prisma.user.create({ data: { userid, password } });
-  }
-
-  async updateFCMToken(userid: string, fcmToken: string) {
-    return await this.prisma.user.update({
-      where: { userid },
-      data: { fcmToken },
-    });
   }
 }

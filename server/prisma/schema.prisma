@@ -17,7 +17,6 @@ model User {
   id        String   @id @default(cuid())
   userid    String   @unique
   password  String
-  fcmToken  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
